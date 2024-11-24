@@ -3,7 +3,17 @@ entries:
   helm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-11-24T17:36:54.6819503+08:00"
+    created: "2024-11-24T21:28:09.3754406+08:00"
+    description: A Helm chart for Kubernetes
+    digest: 03495a101b8a815cb211e9c9dadb59453e99accdef552125ca532654a3ea068c
+    name: helm
+    type: application
+    urls:
+    - https://ChrisJiangEnnowell.github.io/helm-templates/helm-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-11-24T21:28:09.3744414+08:00"
     description: A Helm chart for Kubernetes
     digest: eeb22ddf1fe0f3f0a71699699ad3d338703246c3f6e3cb48e8b78f0069624a17
     name: helm
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://ChrisJiangEnnowell.github.io/helm-templates/helm-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-24T17:36:54.6799497+08:00"
+generated: "2024-11-24T21:28:09.3724452+08:00"
