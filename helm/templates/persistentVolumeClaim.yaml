@@ -1,18 +1,19 @@
 {{- range .Values.volumeMounts }}
 apiVersion: v1
 kind: PersistentVolumeClaim
-metadata:
-  name: pvc-{{ .name }}
+metadata:  
   annotations:
   {{- if .keep | default true }}
     helm.sh/resource-policy: keep
   {{- end }}
+  name: pvc-{{ .name }}
 spec:
   accessModes:
     - {{ .accessModes | default "ReadWriteOnce" }}
   resources:
     requests:
       storage: {{ .size }}
+---
 {{- end }}
 
 
