@@ -60,7 +60,7 @@ spec:
       volumes:      
         - name: {{ .name }}
           persistentVolumeClaim:
-          claimName: pvc-{{ .name }}
+            claimName: pvc-{{ .name }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
