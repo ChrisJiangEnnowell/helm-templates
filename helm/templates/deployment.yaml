@@ -38,26 +38,29 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.containerPort }}
               protocol: TCP
+              containerPort: {{ .Values.service.containerPort | default "http" }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
+          {{- range .Values.volumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}              
+              readOnly: {{ .readOnly | default false }}
           {{- end }}
-          env:
           {{- range $key, $val := .Values.envs }}
             - name: {{ $key }}
               value: {{ $val }}
           {{- end }}
-      {{- with .Values.volumes }}
-      volumes:
-        {{- toYaml . | nindent 8 }}
+      {{- range .Values.volumeMounts }}          
+      volumes:      
+        - name: {{ .name }}
+          persistentVolumeClaim:
+          claimName: pvc-{{ .name }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

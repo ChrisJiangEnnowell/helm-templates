@@ -1,0 +1,3 @@
+*.sh
+*.bak
+k8s.yaml
