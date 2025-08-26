@@ -52,6 +52,8 @@ spec:
               mountPath: {{ .mountPath }}              
               readOnly: {{ .readOnly | default false }}
           {{- end }}
+          command: {{- toYaml .Values.command | nindent 12 }}
+          args: {{- toYaml .Values.args | nindent 12 }}
           env:
           {{- range $key, $val := .Values.envs }}
             - name: {{ $key }}

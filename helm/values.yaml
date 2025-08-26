@@ -72,8 +72,8 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 envs: {}
-
-
+args: {}
+command: {}
 
 livenessProbe:
   httpGet:
